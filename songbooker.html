@@ -1,0 +1,24 @@
+<head>
+  <title>songbooker</title>
+</head>
+
+<body>
+	<h1>Songbooker</h1>
+  {{> songs}}
+</body>
+
+<template name="songs">
+{{#each songlist}}
+  <table class="table">
+  	<tr><th>Text</th><th>Artist</th><th>SongBook</th><th></th></tr>
+  	<tr>
+  		<td>{{name}}</td>
+  		<td>{{artist}}</td>
+  		<td>{{book}}</td>
+  		<td><input type="button" value="view" data-id={{_id}}/></td>
+  	</tr>
+  	<tr><td colspan="4" id = "{{_id}}" class="hidden">{{tabs}}</td>
+  	</tr>
+  	{{/each}}	
+  </table>
+</template>
