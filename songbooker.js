@@ -6,8 +6,9 @@ if (Meteor.isClient) {
   Template.songs.events({
     'click input' : function (e) {
       // template data, if any, is available in 'this'
+      $button = $(e.currentTarget);
       if (typeof console !== 'undefined')
-        console.log("You pressed the button #"+e.attr("data-id"));
+        console.log("You pressed the button #"+ $button.attr("data-id") );
     }
   });
 }
