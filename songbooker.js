@@ -1,17 +1,22 @@
 if (Meteor.isClient) {
-  //Songs = new Meteor.Collection("songs");
   Meteor.subscribe("all-songs");
-  Template.songs.songlist = Songs.find({}).fetch();
 
-  Template.songs.events({
-    'click input' : function (e) {
-      // template data, if any, is available in 'this'
-      $button = $(e.currentTarget);
-      if (typeof console !== 'undefined')
-        console.log("You pressed the button #"+ $button.attr("data-id") );
-    }
+  //songbook
+  Router.route('/', function () {
+    var songlist = Songs.find({}).fetch();
+    console.log('songlist :', songlist);
+    this.render('songbook', {data: {songlist: songlist}});
+  });
+
+  //song
+  Router.route('/song/:_id', function () {
+    var song = Songs.findOne({_id: this.params._id});
+
+    console.log("Displaying #"+ this.params._id );
+    this.render('song', {data:song});
   });
 }
+
 
 if (Meteor.isServer) {
   Meteor.startup(function () {
