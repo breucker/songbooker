@@ -1,8 +1,17 @@
 <template name="song">
   <h1>{{name}} - {{artist}}</h1>
   <div>
+  	<button id="edit">Edit</button>
+  </div>
+  <div id="tabs">
     <pre>
       {{tabs}}
     </pre>
   </div>
+</template>
+
+<template name="songEdit">
+	<h1>Editing {{name}} - {{artist}}</h1>
+	<textarea id="song-tabs">{{tabs}}</textarea>
+  	<button id="save-tabs">save</button>
 </template>

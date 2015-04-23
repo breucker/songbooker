@@ -1,17 +1,18 @@
 <template name="songbook">
-  <h1>Your songs</h1>
+  <h1>{{bookName}}</h1>
   <table class="table">
-  	<tr><th>Text</th><th>Artist</th><th>SongBook</th><th></th></tr>
+  	<tr><th>Text</th><th>Artist</th><th></th></tr>
     {{#each songlist}}
   	<tr>
   		<td>{{name}}</td>
   		<td>{{artist}}</td>
-  		<td>{{book}}</td>
   		<td><a href="/song/{{_id}}" >view</a></td>
   	</tr>
-  	<tr>
-      <td colspan="4" id = "{{_id}}" class="hidden">{{tabs}}</td>
-  	</tr>
-  	{{/each}}	
+  	{{/each}}
+    <tr>
+      <td><input type="text" name="song-name" id="song-name" placeholder="new song's name" /></td>
+      <td><input type="text" name="song-artist" id="song-artist" placeholder="new song's artist"></td>
+      <td><button id="new-song">add song</button></td>
+    </tr>	
   </table>
 </template>

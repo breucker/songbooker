@@ -1,0 +1,13 @@
+<template name="songbooks">
+  <h1>Your songbooks</h1>
+  <ul>
+    {{#each songbooks}}
+      <li>
+        <a href="/songbook/{{_id}}" >{{name}}</a>
+      </li>
+    {{/each}}
+    <li>
+      <input name="songbook-name" placeholder="new songbook" id="songbook-name"/><button id="new-songbook">ok</button>
+    </li>
+  </ul>
+</template>
