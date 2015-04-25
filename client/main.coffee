@@ -46,10 +46,17 @@ Router.route '/song/:_id', ->
   
   Template.song.events 'click #edit': =>
     console.log 'song', @song
-    @render 'songEdit', data: @song
-
-  Template.songEdit.events 'click #save-tabs': =>
-    Songs.update @song._id, $set: tabs: $('#song-tabs').val()
-    @render 'song', data: @song
+    Router.go '/song/'+@params._id+'/edit'
 
   @render 'song', data: @song
+
+Router.route '/song/:_id/edit', ->
+  @song = Songs.findOne(_id: @params._id)
+
+  Template.songEdit.events 'click #save-tabs': =>
+    console.log 'update song', @song
+    Songs.update @song._id, $set: {tabs: $('#song-tabs').val(), artist: $('#song-artist').val(), name: $('#song-name').val()}
+    Router.go '/song/'+@params._id
+    
+  @render 'songEdit', data: @song
+

@@ -1,11 +1,11 @@
 <template name="songbook">
   <h1>{{songbook.name}}</h1>
   <table class="table">
-  	<tr><th>Text</th><th>Artist</th><th></th></tr>
+  	<tr><th>Artist</th><th>Name</th><th></th></tr>
     {{#each songlist}}
   	<tr>
+      <td>{{artist}}</td>
   		<td>{{name}}</td>
-  		<td>{{artist}}</td>
   		<td><a href="/song/{{_id}}" >view</a></td>
   	</tr>
   	{{/each}}

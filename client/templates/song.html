@@ -1,8 +1,6 @@
 <template name="song">
-  <h1>{{name}} - {{artist}}</h1>
-  <div>
-  	<button id="edit">Edit</button>
-  </div>
+  <h1>{{artist}} - {{name}}</h1>
+  	<button type="button" class="btn btn-default" id="edit">Edit</button>
   <div id="tabs">
     <pre>
       {{tabs}}
@@ -11,7 +9,11 @@
 </template>
 
 <template name="songEdit">
-	<h1>Editing {{name}} - {{artist}}</h1>
-	<textarea id="song-tabs">{{tabs}}</textarea>
-  	<button id="save-tabs">save</button>
+	<h1>Editing {{artist}} - {{name}}</h1>
+	<form class="form-horizontal">    
+    <button type="button" id="save-tabs" class="btn btn-default">save</button>
+    <input type="text" value="{{artist}}" id="song-artist" class="form-control" />
+    <input type="text" value="{{name}}" id="song-name" class="form-control" />
+    <textarea id="song-tabs" class="form-control">{{tabs}}</textarea>
+  </form>
 </template>

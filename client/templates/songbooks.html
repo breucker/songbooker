@@ -1,13 +1,22 @@
 <template name="songbooks">
     <h1>Your songbooks</h1>
-    <ul>
+    <div class="list-group">
       {{#each songbooks}}
-        <li>
-          <a href="/songbook/{{_id}}" >{{name}}</a>
-        </li>
+        {{> songbookItem}}
       {{/each}}
-      <li>
-        <input name="songbook-name" placeholder="new songbook" id="songbook-name"/><button id="new-songbook">ok</button>
-      </li>
-    </ul>
+    </div>
+    <form class="form-inline">
+      <input name="songbook-name" placeholder="new songbook" id="songbook-name" class="form-control"/> 
+      <button class="btn btn-default" id="new-songbook">ok</button>
+    </form>
+      
+</template>
+
+<template name="songbookItem">
+    <h4>
+      <a href="/songbook/{{_id}}" class="list-group-item" title="click to explore {{name}}">
+        <span class="glyphicon glyphicon-book" aria-hidden="true"></span>
+        {{name}}
+      </a>
+    </h4>
 </template>
